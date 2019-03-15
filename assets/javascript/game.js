@@ -1,28 +1,16 @@
-let words = ['turtle', 'elephant', 'ostrich', 'bull', 'dog', 'frog'];
-var string = Array.from(words[0]);
-var loser = words.shift();
-document.addEventListener('DOMContentLoaded', () => {
-    'use strict';
+var words = ['turtle', 'elephant', 'ostrich', 'bull', 'dog', 'frog'];
+var remainingGuess = 8;
+document.onkeyup = function(event) {
+    
+    var userGuess = event.key;
 
-    trackKeys();
-});
-
-function trackKeys() {
-    let win = 0;
-    let firstGuess = 8;
-    let str = [];
-
-document.addEventListener('keydown', event =>{
-    const charList = 'abcdefghijklmnopqrstuvwxyz';
-    const key = event.key.toLowerCase();
-    if (charList.indexOf(key) === -1) return;
-    const lastGuess = 'keyup';
-
-    if (lastGuess === 8) {
-        str = [];
+    if ((userGuess === 't') || (userGuess === 'u') || (userGuess === 'r') || (userGuess === 'l') 
+    || (userGuess === 'e') || (userGuess === 'p') || (userGuess === 'h') || 
+    (userGuess === 'a') || (userGuess === 'n') || (userGuess === 'o') || (userGuess === 's') || 
+    (userGuess === 'i') || (userGuess === 'c') || (userGuess === 'b') || (userGuess === 'd') || 
+    (userGuess === 'g') || (userGuess === 'f')) {
+        alert('User Guess: ' + userGuess);
+    } else {
+        document.querySelector('.loss').innerHTML = remainingGuess--;
     }
-    str.push(key);
-    firstGuess = lastGuess;
-    console.log(str);
-})
 }
