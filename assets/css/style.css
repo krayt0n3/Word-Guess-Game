@@ -7,3 +7,8 @@ p {
     text-align: center;
 }
 
+.correct,
+.loss,
+.guesses {
+    text-align: center;
+}
