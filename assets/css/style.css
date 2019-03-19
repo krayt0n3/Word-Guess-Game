@@ -9,6 +9,7 @@ p {
 
 .correct,
 .loss,
-.guesses {
+.guesses,
+.wins {
     text-align: center;
 }

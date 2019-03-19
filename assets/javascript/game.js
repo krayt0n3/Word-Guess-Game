@@ -1,10 +1,11 @@
-var words = ['turtle', 'elephant', 'ostrich', 'bull', 'dog', 'frog'];
+var words = ['fox', 'elephant', 'ostrich', 'bull', 'dog', 'frog'];
 
 document.onkeyup = trackKeys;
 var count = 10;
-var win = 0;
+var wins = 0;
 var lettersGuessed = [];
 var rand = words[Math.floor(Math.random() * words.length)];
+var separate = Array.from(rand);
 var correct = [];
 function trackKeys(event) {
     
@@ -19,17 +20,37 @@ function trackKeys(event) {
     var combined = lettersGuessed.join('');
     document.querySelector('.guesses').innerHTML = combined;
 
-    
-        if ((rand.indexOf(userGuess)) !== -1) {
-            correct.push(userGuess)
+    for (var i = 0; i < separate.length; i++) {
+
+        if (separate[i] === userGuess) {
+            correct.splice(i, 0, separate[i])
         } 
-     var more = correct.join('');
+    }
+    var more = correct.join('');
     document.querySelector('.correct').innerHTML = more;
 
     if (count === 0) {
         lettersGuessed.length = 0;
-        (more.length= 0);
     }
+
+    for (var i = 0; i < words.length; i++) {
+        if (correct === words[i]) {
+            wins += 1;
+        }
+    }
+
+if (more.length === 10) {
+    correct = [];
+}
+
+if ((correct.join('')) === rand) {
+    wins++;
+} document.querySelector('.wins').innerHTML = wins;
+
+if (wins === 1) {
+    location.reload();
+}
+
 };
 
 
