@@ -1,4 +1,4 @@
-var words = ['fox', 'elephant', 'ostrich', 'bull', 'dog', 'frog'];
+var words = ['fox', 'monkey', 'ostrich', 'bull', 'dog', 'frog'];
 
 document.onkeyup = trackKeys;
 var count = 10;
@@ -8,6 +8,7 @@ var rand = words[Math.floor(Math.random() * words.length)];
 var separate = Array.from(rand);
 var correct = [];
 var more = correct.join('');
+let pic = document.getElementById('myImage');
 
 function trackKeys(event) {
     
@@ -54,13 +55,15 @@ if ((correct.join('')) === rand) {
 } document.querySelector('.wins').innerHTML = wins;
 
 
-if ((correct.join('')) === ('fox' || 'ostrich' || 'bull' || 'elephant' || 'dog' || 'frog')) {
+if ((correct.join('')) === ('fox' || 'ostrich' || 'bull' || 'monkey' || 'dog' || 'frog')) {
     correct = [];
     lettersGuessed = [];
     console.log('this works');
 }
 
-
-
+if (wins === 1) {
+    alert('You win.');
+    window.location.reload();
+};
 
 };
