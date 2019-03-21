@@ -7,9 +7,14 @@ var lettersGuessed = [];
 var rand = words[Math.floor(Math.random() * words.length)];
 var separate = Array.from(rand);
 var correct = [];
+var more = correct.join('');
+
 function trackKeys(event) {
     
     var userGuess = event.key;
+
+
+
     if (count >= 1) {
     count -= 1;
     document.querySelector('.loss').innerHTML = count;
@@ -20,14 +25,15 @@ function trackKeys(event) {
     var combined = lettersGuessed.join('');
     document.querySelector('.guesses').innerHTML = combined;
 
+    
     for (var i = 0; i < separate.length; i++) {
 
         if (separate[i] === userGuess) {
             correct.splice(i, 0, separate[i])
         } 
     }
-    var more = correct.join('');
-    document.querySelector('.correct').innerHTML = more;
+    
+    document.querySelector('.correct').innerHTML = (correct.join(''));
 
     if (count === 0) {
         lettersGuessed.length = 0;
@@ -36,10 +42,10 @@ function trackKeys(event) {
     for (var i = 0; i < words.length; i++) {
         if (correct === words[i]) {
             wins += 1;
-        }
-    }
+        } 
+    } 
 
-if (more.length === 10) {
+if (count < 1) {
     correct = [];
 }
 
@@ -47,10 +53,14 @@ if ((correct.join('')) === rand) {
     wins++;
 } document.querySelector('.wins').innerHTML = wins;
 
-if (wins === 1) {
-    location.reload();
+
+if ((correct.join('')) === ('fox' || 'ostrich' || 'bull' || 'elephant' || 'dog' || 'frog')) {
+    correct = [];
+    lettersGuessed = [];
+    console.log('this works');
 }
 
+
+
+
 };
-
-
