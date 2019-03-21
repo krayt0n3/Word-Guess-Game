@@ -1,0 +1,15 @@
+.container {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+p {
+    text-align: center;
+}
+
+.correct,
+.loss,
+.guesses,
+.wins {
+    text-align: center;
+}
